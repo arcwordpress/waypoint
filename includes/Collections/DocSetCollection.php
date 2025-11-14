@@ -7,6 +7,7 @@ class DocSetCollection extends \Gateway\Collection
     protected $key = 'doc_sets';
     protected $table = 'doc_sets';
     protected $fillable = ['name', 'description', 'slug', 'icon'];
+    protected $package = 'waypoint';
 
     /**
      * @var array API route configuration
