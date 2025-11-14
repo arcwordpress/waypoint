@@ -31,6 +31,7 @@ class Plugin
 
     private function registerHooks()
     {
+        add_action('gateway_loaded', [$this, 'registerPackage']);
         add_action('gateway_loaded', [$this, 'registerCollections']);
         add_action('init', [$this, 'addRewriteRules']);
         add_filter('query_vars', [$this, 'addQueryVars']);
@@ -46,6 +47,15 @@ class Plugin
         $this->addRewriteRules();
         // Flush rewrite rules
         flush_rewrite_rules();
+    }
+
+    public function registerPackage()
+    {
+        if (!class_exists('\Gateway\Package')) {
+            return;
+        }
+
+        Package::register();
     }
 
     public function registerCollections()

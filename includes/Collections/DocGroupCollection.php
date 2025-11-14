@@ -7,6 +7,7 @@ class DocGroupCollection extends \Gateway\Collection
     protected $key = 'doc_groups';
     protected $table = 'doc_groups';
     protected $fillable = ['doc_set_id', 'title', 'slug', 'position'];
+    protected $package = 'waypoint';
 
     /**
      * @var array API route configuration
