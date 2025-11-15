@@ -51,11 +51,7 @@ class Plugin
 
     public function registerPackage()
     {
-        if (!class_exists('\Gateway\Package')) {
-            return;
-        }
-
-        Package::register();
+        (new Package())->register();
     }
 
     public function registerCollections()
