@@ -65,6 +65,12 @@ class DocGroupCollection extends \Gateway\Collection
             'required' => true,
             'placeholder' => 'Doc group title...',
         ],
+        'slug' => [
+            'type'       => 'slug',
+            'label'      => 'Slug',
+            'required'   => true,
+            'watchField' => 'title',
+        ],
         'doc_set_id' => [
             'type' => 'relation',
             'label' => 'Doc Set',

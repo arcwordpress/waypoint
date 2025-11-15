@@ -59,16 +59,6 @@ class DocCollection extends \Gateway\Collection
      * @var array Field definitions
      */
     protected $fields = [
-        'title' => [
-            'type' => 'text',
-            'label' => 'Doc Title',
-            'required' => true,
-            'placeholder' => 'Doc title...',
-        ],
-        'content' => [
-            'type' => 'markdown',
-            'label' => 'Content',
-        ],
         'doc_group_id' => [
             'type' => 'relation',
             'label' => 'Doc Group',
@@ -79,6 +69,22 @@ class DocCollection extends \Gateway\Collection
                 'valueField' => 'id',
                 'placeholder' => 'Select a doc group...',
             ],
+        ],
+        'title' => [
+            'type' => 'text',
+            'label' => 'Doc Title',
+            'required' => true,
+            'placeholder' => 'Doc title...',
+        ],
+        'slug' => [
+            'type'       => 'slug',
+            'label'      => 'Slug',
+            'required'   => true,
+            'watchField' => 'title',
+        ],
+        'content' => [
+            'type' => 'markdown',
+            'label' => 'Content',
         ],
         'position' => [
             'type' => 'number',

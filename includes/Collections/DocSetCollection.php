@@ -65,6 +65,12 @@ class DocSetCollection extends \Gateway\Collection
             'required' => true,
             'placeholder' => 'Doc set name...',
         ],
+        'slug' => [
+            'type'       => 'slug',
+            'label'      => 'Slug',
+            'required'   => true,
+            'watchField' => 'name',
+        ],
         'description' => [
             'type' => 'textarea',
             'label' => 'Description',
