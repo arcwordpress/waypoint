@@ -7,12 +7,14 @@ import DocPage from './components/DocPage';
 function App() {
     return (
         <Router basename="/docs">
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/:docsetSlug" element={<DocSetPage />} />
-                <Route path="/:docsetSlug/:groupSlug" element={<DocGroupPage />} />
-                <Route path="/:docsetSlug/:groupSlug/:docSlug" element={<DocPage />} />
-            </Routes>
+            <div className="w-full lg:max-w-[1280px] lg:mx-auto">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/:docsetSlug" element={<DocSetPage />} />
+                    <Route path="/:docsetSlug/:groupSlug" element={<DocGroupPage />} />
+                    <Route path="/:docsetSlug/:groupSlug/:docSlug" element={<DocPage />} />
+                </Routes>
+            </div>
         </Router>
     );
 }
