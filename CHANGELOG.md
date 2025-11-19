@@ -5,6 +5,22 @@ All notable changes to Waypoint will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2025-01-18
+
+### Changed
+- Updated collection permissions to use hybrid authentication (supports both cookie auth and Basic Auth)
+- All write operations (create/update/delete) now support Application Password authentication for remote API access
+- Maintains backward compatibility with WordPress admin cookie authentication
+
+### Improved
+- Remote API integration support for content synchronization workflows
+- Better authentication flexibility for headless and API-driven applications
+
+## [1.1.5] - 2025-11-17
+
+### Fixed
+- Update to collection registries to work with changes to Gateway Forms.
+
 ## [1.1.3] - 2025-10-31
 
 ### Fixed

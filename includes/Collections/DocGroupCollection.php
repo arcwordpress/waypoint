@@ -35,19 +35,19 @@ class DocGroupCollection extends \Gateway\Collection
                 'settings' => []
             ],
             'create' => [
-                'type' => 'cookie_authentication',
+                'type' => 'hybrid_authentication',
                 'settings' => [
                     'capability' => 'edit_posts'
                 ]
             ],
             'update' => [
-                'type' => 'cookie_authentication',
+                'type' => 'hybrid_authentication',
                 'settings' => [
                     'capability' => 'edit_posts'
                 ]
             ],
             'delete' => [
-                'type' => 'cookie_authentication',
+                'type' => 'hybrid_authentication',
                 'settings' => [
                     'capability' => 'delete_posts'
                 ]
