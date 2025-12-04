@@ -3,6 +3,7 @@ import Home from './components/Home';
 import DocSetPage from './components/DocSetPage';
 import DocGroupPage from './components/DocGroupPage';
 import DocPage from './components/DocPage';
+import Tester from './components/Tester';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Route path="/:docsetSlug" element={<DocSetPage />} />
                     <Route path="/:docsetSlug/:groupSlug" element={<DocGroupPage />} />
                     <Route path="/:docsetSlug/:groupSlug/:docSlug" element={<DocPage />} />
+                    <Route path="/tester" element={<Tester />} />
                 </Routes>
             </div>
         </Router>

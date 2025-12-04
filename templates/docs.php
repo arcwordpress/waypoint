@@ -16,6 +16,13 @@ wp_enqueue_style(
     filemtime(WAYPOINT_PATH . 'apps/front/build/index.css')
 );
 
+wp_enqueue_style(
+    'waypoint-front-component-css',
+    WAYPOINT_URL . 'apps/front/build/style-index.css',
+    [],
+    filemtime(WAYPOINT_PATH . 'apps/front/build/style-index.css')
+);
+
 // Enqueue the React app before header
 wp_enqueue_script(
     'waypoint-front',

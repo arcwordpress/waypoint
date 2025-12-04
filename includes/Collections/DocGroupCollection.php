@@ -35,21 +35,12 @@ class DocGroupCollection extends \Gateway\Collection
             ],
             'create' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
             ],
             'update' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
             ],
             'delete' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'delete_posts'
-                ]
             ],
         ],
     ];
@@ -75,7 +66,7 @@ class DocGroupCollection extends \Gateway\Collection
             'label' => 'Doc Set',
             'required' => true,
             'relation' => [
-                'endpoint' => '/wp-json/gateway/v1/doc-sets',
+                'endpoint' => 'gateway/v1/doc-sets',
                 'labelField' => 'name',
                 'valueField' => 'id',
                 'placeholder' => 'Select a doc set...',

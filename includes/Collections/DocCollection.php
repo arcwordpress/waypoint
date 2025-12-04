@@ -17,39 +17,21 @@ class DocCollection extends \Gateway\Collection
         'namespace' => 'gateway',
         'version' => 'v1',
         'route' => 'docs',
-        'methods' => [
-            'get_many' => true,
-            'get_one' => true,
-            'create' => true,
-            'update' => true,
-            'delete' => true,
-        ],
         'permissions' => [
             'get_many' => [
                 'type' => 'public_secured',
-                'settings' => []
             ],
             'get_one' => [
                 'type' => 'public_secured',
-                'settings' => []
             ],
             'create' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
             ],
             'update' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
             ],
             'delete' => [
                 'type' => 'protected',
-                'settings' => [
-                    'capability' => 'delete_posts'
-                ]
             ],
         ],
     ];
