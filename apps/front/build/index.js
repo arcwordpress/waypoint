@@ -81041,9 +81041,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// Get the first path segment as the basename
+const pathSegments = window.location.pathname.split('/').filter(Boolean);
+const basename = pathSegments.length ? `/${pathSegments[0]}` : '/';
 function App() {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.BrowserRouter, {
-    basename: "/docs"
+    basename: basename
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "w-full lg:max-w-[1280px] lg:mx-auto"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
@@ -82404,6 +82408,56 @@ function Protocol({
 
 /***/ }),
 
+/***/ "./src/components/ScrollBox/ScrollBox.js":
+/*!***********************************************!*\
+  !*** ./src/components/ScrollBox/ScrollBox.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/components/ScrollBox/style.css");
+
+
+function ScrollBox({
+  children,
+  height = '100vh',
+  maxHeight,
+  className = ''
+}) {
+  const style = {
+    height,
+    ...(maxHeight ? {
+      maxHeight
+    } : {})
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `gty-scroll-box ${className}`,
+    style: style
+  }, children);
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ScrollBox);
+
+/***/ }),
+
+/***/ "./src/components/ScrollBox/style.css":
+/*!********************************************!*\
+  !*** ./src/components/ScrollBox/style.css ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/components/Sidebar.js":
 /*!***********************************!*\
   !*** ./src/components/Sidebar.js ***!
@@ -82482,6 +82536,58 @@ function Sidebar({
   }, "\u2190 All Documentation"));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sidebar);
+
+/***/ }),
+
+/***/ "./src/components/SplitLayout/SplitLayout.js":
+/*!***************************************************!*\
+  !*** ./src/components/SplitLayout/SplitLayout.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/components/SplitLayout/style.css");
+
+
+function SplitLayout({
+  sidebar,
+  header,
+  children,
+  sidebarWidth
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "gty-split-layout",
+    style: {
+      '--sidebar-width': sidebarWidth || 'clamp(220px, 25vw, 320px)'
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("aside", {
+    className: "gty-split-layout__sidebar"
+  }, sidebar), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("header", {
+    className: "gty-split-layout__header"
+  }, header), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("main", {
+    className: "gty-split-layout__main"
+  }, children));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SplitLayout);
+
+/***/ }),
+
+/***/ "./src/components/SplitLayout/style.css":
+/*!**********************************************!*\
+  !*** ./src/components/SplitLayout/style.css ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -82675,6 +82781,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MenuItem/MenuItem */ "./src/components/MenuItem/MenuItem.js");
 /* harmony import */ var _Pill_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Pill/style.css */ "./src/components/Pill/style.css");
 /* harmony import */ var _Menu_Menu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Menu/Menu */ "./src/components/Menu/Menu.js");
+/* harmony import */ var _ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ScrollBox/ScrollBox */ "./src/components/ScrollBox/ScrollBox.js");
+/* harmony import */ var _SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SplitLayout/SplitLayout */ "./src/components/SplitLayout/SplitLayout.js");
+
+
 
 
 
@@ -82683,22 +82793,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Tester() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      margin: '4rem auto',
-      maxWidth: '1120px'
-    }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Tester"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    sidebar: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_7__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      dir: "v"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      to: "/retrieve"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Retrieve a message"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      method: "GET"
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      to: "/send"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Send a message"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      method: "POST"
+    }))))),
+    header: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      style: {
+        margin: 0
+      }
+    }, "Tester Header")
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
     method: "POST"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
     method: "PUT"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Pill_Pill__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Try Harder"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    dir: "v"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    to: "/retrieve"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Retrieve a message"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    method: "GET"
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "We write our components inside of folders so that we can ship default styles per component using BEM."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Key Drivers"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ol", null, "Make components that are suitable for conversion to blocks.")));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Pill_Pill__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Try Harder"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "We write our components inside of folders so that we can ship default styles per component using BEM."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Key Drivers"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ol", null, "Make components that are suitable for conversion to blocks.")));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tester);
 
