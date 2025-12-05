@@ -17,7 +17,6 @@ class DocSetCollection extends \Gateway\Collection
         'namespace' => 'gateway',
         'version' => 'v1',
         // Route auto-generated from $key: 'doc_sets' -> 'doc-sets'
-        'allow_basic_auth' => true,
         'methods' => [
             'get_many' => true,
             'get_one' => true,
@@ -27,27 +26,27 @@ class DocSetCollection extends \Gateway\Collection
         ],
         'permissions' => [
             'get_many' => [
-                'type' => 'nonce_only',
+                'type' => 'public_secured',
                 'settings' => []
             ],
             'get_one' => [
-                'type' => 'nonce_only',
+                'type' => 'public_secured',
                 'settings' => []
             ],
             'create' => [
-                'type' => 'hybrid_authentication',
+                'type' => 'protected',
                 'settings' => [
                     'capability' => 'edit_posts'
                 ]
             ],
             'update' => [
-                'type' => 'hybrid_authentication',
+                'type' => 'protected',
                 'settings' => [
                     'capability' => 'edit_posts'
                 ]
             ],
             'delete' => [
-                'type' => 'hybrid_authentication',
+                'type' => 'protected',
                 'settings' => [
                     'capability' => 'delete_posts'
                 ]
