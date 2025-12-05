@@ -81033,7 +81033,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DocSetPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/DocSetPage */ "./src/components/DocSetPage.js");
 /* harmony import */ var _components_DocGroupPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/DocGroupPage */ "./src/components/DocGroupPage.js");
 /* harmony import */ var _components_DocPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/DocPage */ "./src/components/DocPage.js");
-/* harmony import */ var _components_Tester__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Tester */ "./src/components/Tester.js");
+/* harmony import */ var _components_Tester_Tester__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Tester/Tester */ "./src/components/Tester/Tester.js");
 
 
 
@@ -81064,7 +81064,7 @@ function App() {
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_DocPage__WEBPACK_IMPORTED_MODULE_5__["default"], null)
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/tester",
-    element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tester__WEBPACK_IMPORTED_MODULE_6__["default"], null)
+    element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tester_Tester__WEBPACK_IMPORTED_MODULE_6__["default"], null)
   }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -82346,6 +82346,73 @@ function MobileTOC({
 
 /***/ }),
 
+/***/ "./src/components/ModeToggle/ModeToggle.js":
+/*!*************************************************!*\
+  !*** ./src/components/ModeToggle/ModeToggle.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function ModeToggle() {
+  const [dark, setDark] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const toggleMode = () => {
+    setDark(d => !d);
+    document.documentElement.classList.toggle('dark', !dark);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "button",
+    className: "gty-mode-toggle",
+    "aria-label": "Toggle dark mode",
+    onClick: toggleMode,
+    style: {
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
+      padding: 0
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    viewBox: "0 0 20 20",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      display: dark ? 'none' : 'inline',
+      width: 20,
+      height: 20,
+      stroke: '#222'
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M12.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    strokeLinecap: "round",
+    d: "M10 5.5v-1M13.182 6.818l.707-.707M14.5 10h1M13.182 13.182l.707.707M10 15.5v-1M6.11 13.889l.708-.707M4.5 10h1M6.11 6.111l.708.707"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    viewBox: "0 0 20 20",
+    fill: "none",
+    "aria-hidden": "true",
+    style: {
+      display: dark ? 'inline' : 'none',
+      width: 20,
+      height: 20,
+      stroke: '#fff',
+      background: '#222',
+      borderRadius: 4
+    }
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M15.224 11.724a5.5 5.5 0 0 1-6.949-6.949 5.5 5.5 0 1 0 6.949 6.949Z"
+  })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModeToggle);
+
+/***/ }),
+
 /***/ "./src/components/Pill/Pill.js":
 /*!*************************************!*\
   !*** ./src/components/Pill/Pill.js ***!
@@ -82359,6 +82426,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/components/Pill/style.css");
+
 
 function Pill({
   children,
@@ -82449,6 +82518,110 @@ function ScrollBox({
 /*!********************************************!*\
   !*** ./src/components/ScrollBox/style.css ***!
   \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/SearchTrigger/SearchTrigger.js":
+/*!*******************************************************!*\
+  !*** ./src/components/SearchTrigger/SearchTrigger.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/components/SearchTrigger/style.css");
+
+
+
+
+// Generic Modal component
+function Modal({
+  open,
+  onClose,
+  children
+}) {
+  if (!open) return null;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "gty-modal-overlay",
+    onClick: onClose
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "gty-modal",
+    onClick: e => e.stopPropagation()
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "gty-modal-close",
+    onClick: onClose
+  }, "\xD7"), children));
+}
+
+// Search modal content
+function SearchModal({
+  open,
+  onClose
+}) {
+  const inputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (open && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [open]);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Modal, {
+    open: open,
+    onClose: onClose
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    ref: inputRef,
+    type: "search",
+    placeholder: "Type to search...",
+    className: "gty-search-input"
+  }));
+}
+
+// Search trigger component
+function SearchTrigger() {
+  const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    function handleKeyDown(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setOpen(o => !o);
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "gty-search-trigger",
+    tabIndex: 0,
+    role: "button",
+    onClick: () => setOpen(true),
+    onKeyDown: e => (e.key === 'Enter' || e.key === ' ') && setOpen(true)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "gty-search-placeholder"
+  }, "Search docs..."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "gty-search-shortcut"
+  }, "Ctrl K")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(SearchModal, {
+    open: open,
+    onClose: () => setOpen(false)
+  }));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchTrigger);
+
+/***/ }),
+
+/***/ "./src/components/SearchTrigger/style.css":
+/*!************************************************!*\
+  !*** ./src/components/SearchTrigger/style.css ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -82762,10 +82935,10 @@ function TableOfContents({
 
 /***/ }),
 
-/***/ "./src/components/Tester.js":
-/*!**********************************!*\
-  !*** ./src/components/Tester.js ***!
-  \**********************************/
+/***/ "./src/components/Tester/Tester.js":
+/*!*****************************************!*\
+  !*** ./src/components/Tester/Tester.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -82775,14 +82948,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Pill_Pill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pill/Pill */ "./src/components/Pill/Pill.js");
-/* harmony import */ var _Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Protocol/Protocol */ "./src/components/Protocol/Protocol.js");
-/* harmony import */ var _SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SplitRow/SplitRow */ "./src/components/SplitRow/SplitRow.js");
-/* harmony import */ var _MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MenuItem/MenuItem */ "./src/components/MenuItem/MenuItem.js");
-/* harmony import */ var _Pill_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Pill/style.css */ "./src/components/Pill/style.css");
-/* harmony import */ var _Menu_Menu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Menu/Menu */ "./src/components/Menu/Menu.js");
-/* harmony import */ var _ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ScrollBox/ScrollBox */ "./src/components/ScrollBox/ScrollBox.js");
-/* harmony import */ var _SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SplitLayout/SplitLayout */ "./src/components/SplitLayout/SplitLayout.js");
+/* harmony import */ var _Pill_Pill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Pill/Pill */ "./src/components/Pill/Pill.js");
+/* harmony import */ var _Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Protocol/Protocol */ "./src/components/Protocol/Protocol.js");
+/* harmony import */ var _SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../SplitRow/SplitRow */ "./src/components/SplitRow/SplitRow.js");
+/* harmony import */ var _MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MenuItem/MenuItem */ "./src/components/MenuItem/MenuItem.js");
+/* harmony import */ var _Menu_Menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Menu/Menu */ "./src/components/Menu/Menu.js");
+/* harmony import */ var _ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ScrollBox/ScrollBox */ "./src/components/ScrollBox/ScrollBox.js");
+/* harmony import */ var _SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../SplitLayout/SplitLayout */ "./src/components/SplitLayout/SplitLayout.js");
+/* harmony import */ var _SearchTrigger_SearchTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../SearchTrigger/SearchTrigger */ "./src/components/SearchTrigger/SearchTrigger.js");
+/* harmony import */ var _ModeToggle_ModeToggle__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ModeToggle/ModeToggle */ "./src/components/ModeToggle/ModeToggle.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./style.css */ "./src/components/Tester/style.css");
 
 
 
@@ -82791,10 +82966,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // Assuming you have this component
 
 function Tester() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    sidebar: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_7__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitLayout_SplitLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    sidebar: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ScrollBox_ScrollBox__WEBPACK_IMPORTED_MODULE_6__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_5__["default"], {
       dir: "v"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
       to: "/retrieve"
@@ -82805,11 +82982,24 @@ function Tester() {
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Send a message"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
       method: "POST"
     }))))),
-    header: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    header: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SplitRow_SplitRow__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SearchTrigger_SearchTrigger__WEBPACK_IMPORTED_MODULE_8__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       style: {
-        margin: 0
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1rem'
       }
-    }, "Tester Header")
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      dir: "h"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      to: "/api"
+    }, "API"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      to: "/docs"
+    }, "Documentation"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MenuItem_MenuItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      to: "/support"
+    }, "Support")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ModeToggle_ModeToggle__WEBPACK_IMPORTED_MODULE_9__["default"], null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      type: "button",
+      className: "gty-signin-btn"
+    }, "Sign In")))
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
     method: "POST"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Protocol_Protocol__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -82817,6 +83007,19 @@ function Tester() {
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Pill_Pill__WEBPACK_IMPORTED_MODULE_1__["default"], null, "Try Harder"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "We write our components inside of folders so that we can ship default styles per component using BEM."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Key Drivers"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ol", null, "Make components that are suitable for conversion to blocks.")));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tester);
+
+/***/ }),
+
+/***/ "./src/components/Tester/style.css":
+/*!*****************************************!*\
+  !*** ./src/components/Tester/style.css ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

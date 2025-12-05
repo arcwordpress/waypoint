@@ -1,11 +1,13 @@
-import Pill from './Pill/Pill';
-import Protocol from './Protocol/Protocol';
-import SplitRow from './SplitRow/SplitRow';
-import MenuItem from './MenuItem/MenuItem';
-import './Pill/style.css';
-import Menu from './Menu/Menu';
-import ScrollBox from './ScrollBox/ScrollBox';
-import SplitLayout from './SplitLayout/SplitLayout';
+import Pill from '../Pill/Pill';
+import Protocol from '../Protocol/Protocol';
+import SplitRow from '../SplitRow/SplitRow';
+import MenuItem from '../MenuItem/MenuItem';
+import Menu from '../Menu/Menu';
+import ScrollBox from '../ScrollBox/ScrollBox';
+import SplitLayout from '../SplitLayout/SplitLayout';
+import SearchTrigger from '../SearchTrigger/SearchTrigger';
+import ModeToggle from '../ModeToggle/ModeToggle'; // Assuming you have this component
+import './style.css';
 
 function Tester() {
     return (
@@ -29,7 +31,18 @@ function Tester() {
                 </ScrollBox>
             }
             header={
-                <h2 style={{ margin: 0 }}>Tester Header</h2>
+                <SplitRow>
+                    <SearchTrigger />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <Menu dir="h">
+                            <MenuItem to="/api">API</MenuItem>
+                            <MenuItem to="/docs">Documentation</MenuItem>
+                            <MenuItem to="/support">Support</MenuItem>
+                        </Menu>
+                        <ModeToggle />
+                        <button type="button" className="gty-signin-btn">Sign In</button>
+                    </div>
+                </SplitRow>
             }
         >
             <Protocol method="POST"/>

@@ -6,12 +6,12 @@
 }
 
 .gty-split-layout__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: var(--sidebar-width, 260px);
     min-width: 0;
     height: 100vh;
-    position: sticky;
-    top: 0;
-    left: 0;
     z-index: 2;
     background: #fafbfc;
     border-right: 1px solid #eee;

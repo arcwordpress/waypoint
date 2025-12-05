@@ -3,7 +3,7 @@ import Home from './components/Home';
 import DocSetPage from './components/DocSetPage';
 import DocGroupPage from './components/DocGroupPage';
 import DocPage from './components/DocPage';
-import Tester from './components/Tester';
+import Tester from './components/Tester/Tester';
 
 // Get the first path segment as the basename
 const pathSegments = window.location.pathname.split('/').filter(Boolean);
