@@ -16,29 +16,12 @@ class DocSetCollection extends \Gateway\Collection
         'enabled' => true,
         'namespace' => 'gateway',
         'version' => 'v1',
-        // Route auto-generated from $key: 'doc_sets' -> 'doc-sets'
-        'methods' => [
-            'get_many' => true,
-            'get_one' => true,
-            'create' => true,
-            'update' => true,
-            'delete' => true,
-        ],
         'permissions' => [
             'get_many' => [
-                'type' => 'public_secured',
+                'type' => 'public',
             ],
             'get_one' => [
-                'type' => 'public_secured',
-            ],
-            'create' => [
-                'type' => 'protected',
-            ],
-            'update' => [
-                'type' => 'protected',
-            ],
-            'delete' => [
-                'type' => 'protected',
+                'type' => 'public',
             ],
         ],
     ];

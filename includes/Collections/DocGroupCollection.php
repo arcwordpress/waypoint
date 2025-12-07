@@ -16,31 +16,14 @@ class DocGroupCollection extends \Gateway\Collection
         'enabled' => true,
         'namespace' => 'gateway',
         'version' => 'v1',
-        // Route auto-generated from $key: 'doc_groups' -> 'doc-groups'
-        'methods' => [
-            'get_many' => true,
-            'get_one' => true,
-            'create' => true,
-            'update' => true,
-            'delete' => true,
-        ],
         'permissions' => [
             'get_many' => [
-                'type' => 'public_secured',
+                'type' => 'public',
                 'settings' => []
             ],
             'get_one' => [
-                'type' => 'public_secured',
+                'type' => 'public',
                 'settings' => []
-            ],
-            'create' => [
-                'type' => 'protected',
-            ],
-            'update' => [
-                'type' => 'protected',
-            ],
-            'delete' => [
-                'type' => 'protected',
             ],
         ],
     ];

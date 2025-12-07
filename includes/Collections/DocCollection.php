@@ -17,6 +17,10 @@ class DocCollection extends \Gateway\Collection
         'namespace' => 'gateway',
         'version' => 'v1',
         'route' => 'docs',
+        'permissions' => [
+            'get_one'  => 'public',
+            'get_many' => 'public'
+        ]
     ];
 
     /**
