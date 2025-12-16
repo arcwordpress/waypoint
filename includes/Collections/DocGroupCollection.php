@@ -19,11 +19,9 @@ class DocGroupCollection extends \Gateway\Collection
         'permissions' => [
             'get_many' => [
                 'type' => 'public',
-                'settings' => []
             ],
             'get_one' => [
                 'type' => 'public',
-                'settings' => []
             ],
         ],
     ];
