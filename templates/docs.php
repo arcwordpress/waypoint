@@ -41,10 +41,10 @@ wp_localize_script('waypoint-front', 'waypointData', [
     'adminUrl' => admin_url('admin.php?page=gateway-collections'),
 ]);
 
-get_header();
+get_header('docs');
 ?>
 
 <div id="waypoint-app"></div>
 
 <?php
-get_footer();
+get_footer('docs');
