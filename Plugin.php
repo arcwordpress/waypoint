@@ -2,9 +2,9 @@
 
 /**
  * Plugin Name: Waypoint
- * Description: Multi-set documentation management for WordPress
+ * Description: Multi-set documentation management for WordPress. Extends Gateway.
  * Version: 1.1.9
- * Author: ARC Software
+ * Author: ARCWP
  */
 
 namespace Waypoint;
@@ -13,7 +13,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Define plugin constants
 define('WAYPOINT_VERSION', '1.1.9');
 define('WAYPOINT_PATH', plugin_dir_path(__FILE__));
 define('WAYPOINT_URL', plugin_dir_url(__FILE__));
@@ -22,7 +21,7 @@ define('WAYPOINT_FILE', __FILE__);
 class Plugin
 {
     private static $instance = null;
-    private $docs_slug = 'docs'; // Set your docs slug here
+    private $docs_slug = 'docs';
 
     private function __construct()
     {
@@ -36,17 +35,14 @@ class Plugin
         add_action('gateway_loaded', [$this, 'registerCollections']);
         add_action('init', [$this, 'addRewriteRules']);
         add_filter('query_vars', [$this, 'addQueryVars']);
-        add_action('template_redirect', [$this, 'templateLoader']);
+        add_filter('template_include', [$this, 'templateLoader']);
         register_activation_hook(WAYPOINT_FILE, [$this, 'activate']);
     }
 
     public function activate()
     {
-        // Create database tables
         Database::install();
-        // Register rewrite rules
         $this->addRewriteRules();
-        // Flush rewrite rules
         flush_rewrite_rules();
     }
 
@@ -68,41 +64,30 @@ class Plugin
 
     public function addRewriteRules()
     {
-        // Match /docs and any sub-paths (e.g., /docs/test, /docs/getting-started)
-        add_rewrite_rule('^docs(/.*)?$', 'index.php?waypoint_docs=1', 'top');
+        add_rewrite_rule('^docs(/.*)?/?$', 'index.php?waypoint_docs=$matches[1]', 'top');
+        add_rewrite_tag('%waypoint_docs%', '(.*)');
 
-        // Dynamic rewrite rule for docs slug and any sub-paths
-        add_rewrite_rule(
-            '^' . $this->docs_slug . '(/.*)?$',
-            'index.php?waypoint_docs_dynamic=1',
-            'top'
-        );
+        $rules = get_option('rewrite_rules');
+        if (!isset($rules['^docs(/.*)?/?$'])) {
+            flush_rewrite_rules(false);
+        }
     }
 
     public function addQueryVars($vars)
     {
         $vars[] = 'waypoint_docs';
-        $vars[] = 'waypoint_docs_dynamic';
         return $vars;
     }
 
-    public function templateLoader()
+    public function templateLoader($template)
     {
-        if (get_query_var('waypoint_docs')) {
-            $template = WAYPOINT_PATH . 'templates/docs.php';
-            if (file_exists($template)) {
-                load_template($template);
-                exit;
+        if (false !== get_query_var('waypoint_docs', false)) {
+            $custom = WAYPOINT_PATH . 'templates/docs.php';
+            if (file_exists($custom)) {
+                return $custom;
             }
         }
-
-        if (get_query_var('waypoint_docs_dynamic')) {
-            $template = WAYPOINT_PATH . 'templates/docs-nohead.php';
-            if (file_exists($template)) {
-                load_template($template);
-                exit;
-            }
-        }
+        return $template;
     }
 
     public static function init()
