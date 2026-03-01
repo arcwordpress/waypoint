@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Waypoint
  * Description: Multi-set documentation management for WordPress
- * Version: 1.1.6
+ * Version: 1.1.8
  * Author: ARC Software
  */
 
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('WAYPOINT_VERSION', '1.1.6');
+define('WAYPOINT_VERSION', '1.1.8');
 define('WAYPOINT_PATH', plugin_dir_path(__FILE__));
 define('WAYPOINT_URL', plugin_dir_url(__FILE__));
 define('WAYPOINT_FILE', __FILE__);
@@ -22,6 +22,7 @@ define('WAYPOINT_FILE', __FILE__);
 class Plugin
 {
     private static $instance = null;
+    private $docs_slug = 'docs2'; // Set your docs slug here
 
     private function __construct()
     {
@@ -69,11 +70,19 @@ class Plugin
     {
         // Match /docs and any sub-paths (e.g., /docs/test, /docs/getting-started)
         add_rewrite_rule('^docs(/.*)?$', 'index.php?waypoint_docs=1', 'top');
+
+        // Dynamic rewrite rule for docs slug and any sub-paths
+        add_rewrite_rule(
+            '^' . $this->docs_slug . '(/.*)?$',
+            'index.php?waypoint_docs_dynamic=1',
+            'top'
+        );
     }
 
     public function addQueryVars($vars)
     {
         $vars[] = 'waypoint_docs';
+        $vars[] = 'waypoint_docs_dynamic';
         return $vars;
     }
 
@@ -81,6 +90,14 @@ class Plugin
     {
         if (get_query_var('waypoint_docs')) {
             $template = WAYPOINT_PATH . 'templates/docs.php';
+            if (file_exists($template)) {
+                load_template($template);
+                exit;
+            }
+        }
+
+        if (get_query_var('waypoint_docs_dynamic')) {
+            $template = WAYPOINT_PATH . 'templates/docs-nohead.php';
             if (file_exists($template)) {
                 load_template($template);
                 exit;

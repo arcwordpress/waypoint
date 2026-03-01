@@ -8,6 +8,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Disable admin bar for this template
+add_filter('show_admin_bar', '__return_false');
+
 // Enqueue the CSS before header
 wp_enqueue_style(
     'waypoint-front-css',
@@ -41,10 +44,10 @@ wp_localize_script('waypoint-front', 'waypointData', [
     'adminUrl' => admin_url('admin.php?page=gateway-collections'),
 ]);
 
-get_header();
+get_header('showcase');
 ?>
 
 <div id="waypoint-app"></div>
 
 <?php
-get_footer();
+get_footer('showcase');

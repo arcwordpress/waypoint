@@ -16,40 +16,12 @@ class DocGroupCollection extends \Gateway\Collection
         'enabled' => true,
         'namespace' => 'gateway',
         'version' => 'v1',
-        // Route auto-generated from $key: 'doc_groups' -> 'doc-groups'
-        'methods' => [
-            'get_many' => true,
-            'get_one' => true,
-            'create' => true,
-            'update' => true,
-            'delete' => true,
-        ],
         'permissions' => [
             'get_many' => [
-                'type' => 'public_secured',
-                'settings' => []
+                'type' => 'public',
             ],
             'get_one' => [
-                'type' => 'public_secured',
-                'settings' => []
-            ],
-            'create' => [
-                'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
-            ],
-            'update' => [
-                'type' => 'protected',
-                'settings' => [
-                    'capability' => 'edit_posts'
-                ]
-            ],
-            'delete' => [
-                'type' => 'protected',
-                'settings' => [
-                    'capability' => 'delete_posts'
-                ]
+                'type' => 'public',
             ],
         ],
     ];
@@ -75,7 +47,7 @@ class DocGroupCollection extends \Gateway\Collection
             'label' => 'Doc Set',
             'required' => true,
             'relation' => [
-                'endpoint' => '/wp-json/gateway/v1/doc-sets',
+                'endpoint' => 'gateway/v1/doc-sets',
                 'labelField' => 'name',
                 'valueField' => 'id',
                 'placeholder' => 'Select a doc set...',
