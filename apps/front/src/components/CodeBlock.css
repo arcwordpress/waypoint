@@ -5,11 +5,11 @@
     margin: 1.5rem 0;
 }
 
-/* Block: code-block-wrapper (for syntax highlighted code with copy button) */
+/* Block: code-block-wrapper (always dark mode, removed mode switching) */
 .code-block-wrapper {
     position: relative;
     overflow-x: auto;
-    background-color: #0f172a;
+    background-color: var(--color-neutral-950);
     border-radius: 0.375rem;
     padding: 1rem;
     margin: 1.5rem 0;
@@ -64,14 +64,10 @@ html.dark .code-block-wrapper {
 
 /* Block: code-inline */
 .code-inline {
-    color: #ea580c;
-    font-weight: 600;
+    color: #e2e8f0;
+    font-weight: 400;
     font-size: 0.875rem;
-    background-color: #f1f5f9;
-    padding: 0.125rem 0.375rem;
+    background-color: #222;
+    padding: 0.1rem 0.325rem;
     border-radius: 0.25rem;
-}
-
-html.dark .code-inline {
-    background-color: #1e293b;
 }

@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+#waypoint-app {
+    margin-top: 60px;
+}

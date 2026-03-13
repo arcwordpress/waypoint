@@ -54,25 +54,16 @@ function TableOfContents({ content }) {
     const headings = useHeadings(content);
 
     if (headings.length === 0) {
-        console.log('[TOC] No headings found, not rendering TOC');
-        // Show a placeholder during development to confirm component is mounted
-        if (process.env.NODE_ENV === 'development') {
-            return (
-                <div className="border border-orange-600 rounded-lg p-4 text-sm text-orange-600">
-                    TOC: No h2-h6 headings found in content
-                </div>
-            );
-        }
         return null;
     }
 
     console.log('[TOC] Rendering TOC with', headings.length, 'headings');
 
     return (
-        <nav className="toc border border-slate-900 dark:border-slate-50 rounded-lg p-4 sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto bg-white dark:bg-slate-800">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-3 uppercase tracking-wide">
+        <nav className="toc border border-slate-900 rounded-lg p-4 sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto bg-neutral-950">
+            <h3 className="text-sm font-semibold text-slate-50 mb-3 uppercase tracking-wide">
                 Table of Contents
-                <span className="ml-2 text-xs text-orange-600 font-normal">({headings.length} headings)</span>
+                <span className="block mt-1 text-xs text-neutral-600 font-normal">({headings.length} headings)</span>
             </h3>
             <ul className="space-y-1 text-sm pr-2">
                 {headings.map((heading) => {
@@ -83,7 +74,7 @@ function TableOfContents({ content }) {
                         <li key={heading.id} style={{ marginLeft: `${indent}px` }}>
                             <a
                                 href={`#${heading.id}`}
-                                className="text-slate-900 dark:text-slate-50 hover:text-orange-600 transition-colors duration-150 block py-1"
+                                className="text-slate-50 hover:text-neutral-600 transition-colors duration-150 block py-1"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     const element = document.getElementById(heading.id);
@@ -98,7 +89,7 @@ function TableOfContents({ content }) {
                                     if (typeof part === 'string') {
                                         return part;
                                     } else if (part.type === 'code') {
-                                        return <code key={idx} className="text-orange-600 text-xs px-1 py-0.5 rounded">{part.content}</code>;
+                                        return <code key={idx} className="text-neutral-600 text-xs px-1 py-0.5 rounded">{part.content}</code>;
                                     }
                                     return null;
                                 })}

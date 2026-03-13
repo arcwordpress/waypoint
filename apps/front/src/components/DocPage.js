@@ -40,27 +40,27 @@ function DocPage() {
         return (
             <div className="p-8 max-w-4xl mx-auto">
                 <div className="animate-pulse space-y-4">
-                    <div className="h-10 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-3/4"></div>
-                    <div className="h-4 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-full mt-6"></div>
-                    <div className="h-4 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-5/6"></div>
-                    <div className="h-4 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-4/5"></div>
-                    <div className="h-32 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-full mt-6"></div>
-                    <div className="h-4 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-full"></div>
-                    <div className="h-4 bg-slate-900 dark:bg-slate-50 opacity-20 rounded w-3/4"></div>
+                    <div className="h-10 bg-slate-700 opacity-40 rounded w-3/4 min-h-10"></div>
+                    <div className="h-4 bg-slate-700 opacity-40 rounded w-full mt-6 min-h-4"></div>
+                    <div className="h-4 bg-slate-700 opacity-40 rounded w-5/6 min-h-4"></div>
+                    <div className="h-4 bg-slate-700 opacity-40 rounded w-4/5 min-h-4"></div>
+                    <div className="h-32 bg-slate-700 opacity-40 rounded w-full mt-6 min-h-32"></div>
+                    <div className="h-4 bg-slate-700 opacity-40 rounded w-full min-h-4"></div>
+                    <div className="h-4 bg-slate-700 opacity-40 rounded w-3/4 min-h-4"></div>
                 </div>
             </div>
         );
     }
 
-    if (error) return <div className="p-8 max-w-4xl mx-auto"><p className="text-orange-600">Error: {error}</p></div>;
-    if (!data) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-900 dark:text-slate-50">No data available</p></div>;
+    if (error) return <div className="p-8 max-w-4xl mx-auto"><p className="text-neutral-600">Error: {error}</p></div>;
+    if (!data) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-50">No data available</p></div>;
 
     const docset = data.getDocSetBySlug(docsetSlug);
-    if (!docset) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-900 dark:text-slate-50">Docset not found</p></div>;
+    if (!docset) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-50">Docset not found</p></div>;
 
     const docGroups = data.getDocGroupsByDocSetId(docset.id);
     const docGroup = data.getDocGroupBySlugAndDocSetId(groupSlug, docset.id);
-    if (!docGroup) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-900 dark:text-slate-50">Doc group not found</p></div>;
+    if (!docGroup) return <div className="p-8 max-w-4xl mx-auto"><p className="text-slate-50">Doc group not found</p></div>;
 
     const allDocs = docGroups.flatMap(group => data.getDocsByDocGroupId(group.id));
     const doc = data.getDocBySlugAndDocGroupId(docSlug, docGroup.id);
@@ -73,7 +73,7 @@ function DocPage() {
                 {doc?.content ? (
                     <div className="flex gap-8 p-8">
                         <div className="flex-1 min-w-0 max-w-[65ch]">
-                            {doc.title && <h1 className="text-4xl font-black text-slate-900 dark:text-slate-50 mb-6 break-words">{doc.title}</h1>}
+                            {doc.title && <h1 className="text-4xl font-black text-slate-50 mb-6 break-words">{doc.title}</h1>}
 
                             {/* Mobile Navigation - Shows only on mobile */}
                             <MobileSidebar docset={docset} docGroups={docGroups} data={data} />
@@ -86,47 +86,47 @@ function DocPage() {
                                     h2: ({ node, children }) => {
                                         const id = slugTracker.getUniqueSlug(children);
                                         console.log('[DocPage] h2 ID:', id, 'for text:', children);
-                                        return <h2 id={id} className="text-3xl font-extrabold text-slate-900 dark:text-slate-50 mt-12 mb-4 break-words">{children}</h2>;
+                                        return <h2 id={id} className="text-3xl font-extrabold text-slate-50 mt-12 mb-4 break-words">{children}</h2>;
                                     },
                                     h3: ({ node, children }) => {
                                         const id = slugTracker.getUniqueSlug(children);
-                                        return <h3 id={id} className="text-2xl font-bold text-slate-900 dark:text-slate-50 mt-8 mb-3 break-words">{children}</h3>;
+                                        return <h3 id={id} className="text-2xl font-bold text-slate-50 mt-8 mb-3 break-words">{children}</h3>;
                                     },
                                     h4: ({ node, children }) => {
                                         const id = slugTracker.getUniqueSlug(children);
-                                        return <h4 id={id} className="text-xl font-bold text-slate-900 dark:text-slate-50 mt-6 mb-2 break-words">{children}</h4>;
+                                        return <h4 id={id} className="text-xl font-bold text-slate-50 mt-6 mb-2 break-words">{children}</h4>;
                                     },
                                     h5: ({ node, children }) => {
                                         const id = slugTracker.getUniqueSlug(children);
-                                        return <h5 id={id} className="text-lg font-semibold text-slate-900 dark:text-slate-50 mt-4 mb-2 break-words">{children}</h5>;
+                                        return <h5 id={id} className="text-lg font-semibold text-slate-50 mt-4 mb-2 break-words">{children}</h5>;
                                     },
                                     h6: ({ node, children }) => {
                                         const id = slugTracker.getUniqueSlug(children);
-                                        return <h6 id={id} className="text-base font-semibold text-slate-900 dark:text-slate-50 mt-4 mb-2 break-words">{children}</h6>;
+                                        return <h6 id={id} className="text-base font-semibold text-slate-50 mt-4 mb-2 break-words">{children}</h6>;
                                     },
                                     p: ({ node, children }) => {
-                                        return <p className="my-5 text-slate-900 dark:text-slate-50 leading-7 break-words">{children}</p>;
+                                        return <p className="my-5 text-slate-50 leading-7 break-words">{children}</p>;
                                     },
                                     a: ({ node, children, href, ...props }) => {
-                                        return <a href={href} className="text-orange-600 hover:opacity-70 font-medium transition-opacity" {...props}>{children}</a>;
+                                        return <a href={href} className="text-neutral-600 hover:opacity-70 font-medium transition-opacity" {...props}>{children}</a>;
                                     },
                                     ul: ({ node, children }) => {
-                                        return <ul className="my-5 pl-7 list-disc text-slate-900 dark:text-slate-50">{children}</ul>;
+                                        return <ul className="my-5 pl-7 list-disc text-slate-50">{children}</ul>;
                                     },
                                     ol: ({ node, children }) => {
-                                        return <ol className="my-5 pl-7 list-decimal text-slate-900 dark:text-slate-50">{children}</ol>;
+                                        return <ol className="my-5 pl-7 list-decimal text-slate-50">{children}</ol>;
                                     },
                                     li: ({ node, children }) => {
                                         return <li className="my-2">{children}</li>;
                                     },
                                     strong: ({ node, children }) => {
-                                        return <strong className="font-semibold text-slate-900 dark:text-slate-50">{children}</strong>;
+                                        return <strong className="font-semibold text-slate-50">{children}</strong>;
                                     },
                                     em: ({ node, children }) => {
                                         return <em className="italic">{children}</em>;
                                     },
                                     blockquote: ({ node, children }) => {
-                                        return <blockquote className="border-l-4 border-slate-900 dark:border-slate-50 pl-4 my-6 italic text-slate-900 dark:text-slate-50">{children}</blockquote>;
+                                        return <blockquote className="border-l-4 border-slate-900 pl-4 my-6 italic text-slate-50">{children}</blockquote>;
                                     },
                                     pre: ({ node, children }) => {
                                         return <pre className="code-block">{children}</pre>;
@@ -158,25 +158,25 @@ function DocPage() {
                                         );
                                     },
                                     hr: ({ node }) => {
-                                        return <hr className="my-8 border-slate-300 dark:border-slate-700" />;
+                                        return <hr className="my-8 border-slate-700" />;
                                     },
                                     table: ({ node, children }) => {
-                                        return <div className="overflow-x-auto my-6"><table className="min-w-full border border-slate-300 dark:border-slate-700">{children}</table></div>;
+                                        return <div className="overflow-x-auto my-6"><table className="min-w-full border border-slate-700">{children}</table></div>;
                                     },
                                     thead: ({ node, children }) => {
-                                        return <thead className="bg-slate-100 dark:bg-slate-800">{children}</thead>;
+                                        return <thead className="bg-slate-800">{children}</thead>;
                                     },
                                     tbody: ({ node, children }) => {
                                         return <tbody>{children}</tbody>;
                                     },
                                     tr: ({ node, children }) => {
-                                        return <tr className="border-b border-slate-300 dark:border-slate-700">{children}</tr>;
+                                        return <tr className="border-b border-slate-700">{children}</tr>;
                                     },
                                     th: ({ node, children }) => {
-                                        return <th className="px-4 py-2 text-left font-semibold text-slate-900 dark:text-slate-50">{children}</th>;
+                                        return <th className="px-4 py-2 text-left font-semibold text-slate-50">{children}</th>;
                                     },
                                     td: ({ node, children }) => {
-                                        return <td className="px-4 py-2 text-slate-900 dark:text-slate-50">{children}</td>;
+                                        return <td className="px-4 py-2 text-slate-50">{children}</td>;
                                     }
                                 }}
                             >
@@ -190,7 +190,7 @@ function DocPage() {
                         </div>
                     </div>
                 ) : (
-                    <p className="text-slate-900 dark:text-slate-50 p-8">No content available</p>
+                    <p className="text-slate-50 p-8">No content available</p>
                 )}
             </main>
         </div>

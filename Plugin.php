@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Waypoint
  * Description: Multi-set documentation management for WordPress. Extends Gateway.
- * Version: 1.1.9
+ * Version: 1.1.10
  * Author: ARCWP
  */
 
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WAYPOINT_VERSION', '1.1.9');
+define('WAYPOINT_VERSION', '1.1.10');
 define('WAYPOINT_PATH', plugin_dir_path(__FILE__));
 define('WAYPOINT_URL', plugin_dir_url(__FILE__));
 define('WAYPOINT_FILE', __FILE__);

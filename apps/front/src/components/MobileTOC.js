@@ -31,7 +31,7 @@ function MobileTOC({ content }) {
             {/* Hamburger Button */}
             <button
                 onClick={toggleMenu}
-                className="md:hidden flex items-center gap-2 w-full px-4 py-3 mb-4 bg-slate-900 dark:bg-slate-800 text-slate-50 rounded-lg hover:opacity-90 transition-opacity"
+                className="md:hidden flex items-center gap-2 w-full px-4 py-3 mb-4 bg-slate-900 text-slate-50 rounded-lg hover:opacity-90 transition-opacity"
                 aria-label="Toggle Table of Contents"
             >
                 <svg
@@ -48,16 +48,16 @@ function MobileTOC({ content }) {
                     />
                 </svg>
                 <span className="font-semibold">Table of Contents</span>
-                <span className="ml-auto text-xs bg-orange-600 px-2 py-1 rounded">
+                <span className="ml-auto text-xs bg-neutral-600 px-2 py-1 rounded">
                     {headings.length}
                 </span>
             </button>
 
             {/* Full-Screen Overlay */}
             {isOpen && (
-                <div className="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 overflow-y-auto">
+                <div className="md:hidden fixed inset-0 z-50 bg-slate-900 overflow-y-auto">
                     {/* Header with Close Button */}
-                    <div className="sticky top-0 bg-slate-900 dark:bg-slate-800 text-slate-50 p-4 border-b border-slate-700 flex items-center justify-between">
+                    <div className="sticky top-0 bg-slate-900 text-slate-50 p-4 border-b border-slate-700 flex items-center justify-between">
                         <h2 className="text-lg font-bold">Table of Contents</h2>
                         <button
                             onClick={toggleMenu}
@@ -90,13 +90,13 @@ function MobileTOC({ content }) {
                                     <li key={heading.id} style={{ marginLeft: `${indent}px` }}>
                                         <button
                                             onClick={() => handleLinkClick(heading.id)}
-                                            className="text-left w-full text-slate-900 dark:text-slate-50 hover:text-orange-600 transition-colors duration-150 block py-2 text-base"
+                                            className="text-left w-full text-slate-50 hover:text-neutral-600 transition-colors duration-150 block py-2 text-base"
                                         >
                                             {heading.text.map((part, idx) => {
                                                 if (typeof part === 'string') {
                                                     return part;
                                                 } else if (part.type === 'code') {
-                                                    return <code key={idx} className="text-orange-600 text-sm px-1 py-0.5 rounded">{part.content}</code>;
+                                                    return <code key={idx} className="text-neutral-600 text-sm px-1 py-0.5 rounded">{part.content}</code>;
                                                 }
                                                 return null;
                                             })}

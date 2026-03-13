@@ -5,8 +5,8 @@ function Sidebar({ docset, docGroups, allDocs, data }) {
     const { docsetSlug, groupSlug, docSlug } = useParams();
 
     return (
-        <aside className="w-64 flex-shrink-0 border-r border-slate-300 dark:border-slate-700 p-6 sticky top-0 h-screen overflow-y-auto hidden md:block">
-            <h2 className="text-xl font-bold font-lexend text-slate-900 dark:text-slate-50 mb-4">{docset.name}</h2>
+        <aside className="w-64 flex-shrink-0 border-r border-slate-700 p-6 sticky top-0 h-screen overflow-y-auto hidden md:block">
+            <h2 className="text-xl font-bold font-lexend text-slate-50 mb-4">{docset.name}</h2>
 
             <nav>
                 {docGroups.map((group) => {
@@ -19,7 +19,7 @@ function Sidebar({ docset, docGroups, allDocs, data }) {
                             <Link
                                 to={`/${docsetSlug}/${group.slug}`}
                                 className={`block text-base font-semibold mb-2 ${
-                                    isActiveGroup ? 'text-orange-600' : 'text-slate-900 dark:text-slate-50 hover:text-orange-600'
+                                    isActiveGroup ? 'text-neutral-600' : 'text-slate-50 hover:text-neutral-600'
                                 }`}
                             >
                                 {group.title}
@@ -36,8 +36,8 @@ function Sidebar({ docset, docGroups, allDocs, data }) {
                                                     to={`/${docsetSlug}/${group.slug}/${doc.slug}`}
                                                     className={`block text-sm py-1 ${
                                                         isActiveDoc
-                                                            ? 'text-orange-600 font-medium'
-                                                            : 'text-slate-900 dark:text-slate-50 hover:text-orange-600'
+                                                            ? 'text-neutral-600 font-medium'
+                                                            : 'text-slate-50 hover:text-neutral-600'
                                                     }`}
                                                 >
                                                     {doc.title}
@@ -68,7 +68,7 @@ function Sidebar({ docset, docGroups, allDocs, data }) {
                 <AdminEditLink type="doc_sets" id={docset.id} label="Edit Doc Set" />
             )}
 
-            <Link to="/" className="text-orange-600 hover:opacity-70 text-sm mt-8 inline-block">
+            <Link to="/" className="text-neutral-600 hover:opacity-70 text-sm mt-8 inline-block">
                 &larr; All Documentation
             </Link>
         </aside>

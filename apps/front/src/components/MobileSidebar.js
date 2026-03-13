@@ -23,7 +23,7 @@ function MobileSidebar({ docset, docGroups, data }) {
             {/* Hamburger Button */}
             <button
                 onClick={toggleMenu}
-                className="md:hidden flex items-center gap-3 w-full px-4 py-3 mb-3 bg-slate-900 dark:bg-slate-800 text-slate-50 rounded-lg hover:opacity-90 transition-opacity"
+                className="md:hidden flex items-center gap-3 w-full px-4 py-3 mb-3 bg-slate-900 text-slate-50 rounded-lg hover:opacity-90 transition-opacity"
                 aria-label="Toggle Navigation Menu"
             >
                 <svg
@@ -45,9 +45,9 @@ function MobileSidebar({ docset, docGroups, data }) {
 
             {/* Full-Screen Overlay */}
             {isOpen && (
-                <div className="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 overflow-y-auto">
+                <div className="md:hidden fixed inset-0 z-50 bg-slate-900 overflow-y-auto">
                     {/* Header with Close Button */}
-                    <div className="sticky top-0 bg-slate-900 dark:bg-slate-800 text-slate-50 p-4 border-b border-slate-700 flex items-center justify-between">
+                    <div className="sticky top-0 bg-slate-900 text-slate-50 p-4 border-b border-slate-700 flex items-center justify-between">
                         <h2 className="text-lg font-bold">{docset.name}</h2>
                         <button
                             onClick={toggleMenu}
@@ -83,8 +83,8 @@ function MobileSidebar({ docset, docGroups, data }) {
                                         onClick={closeMenu}
                                         className={`block text-lg font-semibold mb-3 ${
                                             isActiveGroup
-                                                ? 'text-orange-600'
-                                                : 'text-slate-900 dark:text-slate-50 hover:text-orange-600'
+                                                ? 'text-neutral-600'
+                                                : 'text-slate-50 hover:text-neutral-600'
                                         }`}
                                     >
                                         {group.title}
@@ -102,8 +102,8 @@ function MobileSidebar({ docset, docGroups, data }) {
                                                             onClick={closeMenu}
                                                             className={`block text-base py-1.5 ${
                                                                 isActiveDoc
-                                                                    ? 'text-orange-600 font-medium'
-                                                                    : 'text-slate-900 dark:text-slate-50 hover:text-orange-600'
+                                                                    ? 'text-neutral-600 font-medium'
+                                                                    : 'text-slate-50 hover:text-neutral-600'
                                                             }`}
                                                         >
                                                             {doc.title}
@@ -136,7 +136,7 @@ function MobileSidebar({ docset, docGroups, data }) {
                         <Link
                             to="/"
                             onClick={closeMenu}
-                            className="text-orange-600 hover:opacity-70 text-base mt-8 inline-block"
+                            className="text-neutral-600 hover:opacity-70 text-base mt-8 inline-block"
                         >
                             &larr; All Documentation
                         </Link>

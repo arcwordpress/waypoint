@@ -6,7 +6,7 @@
     gap: 0.5rem;
     padding: 0.625rem 1rem;
     margin-top: 1.5rem;
-    background-color: #f97316;
+    background-color: #525252;
     color: white;
     border-radius: 0.375rem;
     font-size: 0.875rem;
@@ -25,9 +25,10 @@
     flex-shrink: 0;
 }
 
-/* Dark mode support */
+/* Always dark mode: removed mode switching */
+/* Always dark mode: removed mode switching */
 @media (prefers-color-scheme: dark) {
     .admin-edit-link {
-        background-color: #ea580c;
+        background-color: #525252;
     }
 }

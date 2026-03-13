@@ -6,7 +6,7 @@ import Menu from '../Menu/Menu';
 import ScrollBox from '../ScrollBox/ScrollBox';
 import SplitLayout from '../SplitLayout/SplitLayout';
 import SearchTrigger from '../SearchTrigger/SearchTrigger';
-import ModeToggle from '../ModeToggle/ModeToggle'; // Assuming you have this component
+// ...existing code...
 import './style.css';
 
 function Tester() {
@@ -39,7 +39,7 @@ function Tester() {
                             <MenuItem to="/docs">Documentation</MenuItem>
                             <MenuItem to="/support">Support</MenuItem>
                         </Menu>
-                        <ModeToggle />
+                        {/* ModeToggle removed: always dark mode */}
                         <button type="button" className="gty-signin-btn">Sign In</button>
                     </div>
                 </SplitRow>
